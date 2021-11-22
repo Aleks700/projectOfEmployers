@@ -73,9 +73,9 @@ app.post('/api',  (req,res)=>{
 
 
 
-app.delete('/api',  async (req,res)=>{
+app.delete('/api',  (req,res)=>{
     
-      await mysql.query(`DELETE FROM CLIENTS_NEW WHERE Id=${req.body.Id}`, (err,row,fields)=>{
+       mysql.query(`DELETE FROM CLIENTS_NEW WHERE Id=${req.body.Id}`, (err,row,fields)=>{
         console.log('КЛиент  был удален из базы');
         // res.send(`Удален ${req.body.Id}`);
     });

@@ -1,10 +1,15 @@
 const mysql = require('mysql2');
 
-const host = 'aleksha3.beget.tech';
-const user = 'aleksha3_al';
-const database = 'aleksha3_al';
-const password = '147258369A-a';
+// const host = 'aleksha3.beget.tech';
+// const user = 'aleksha3_al';
+// const database = 'aleksha3_al';
+// const password = '147258369A-a';
 
+
+const host = '127.0.0.1';
+const user = 'root';
+const database = 'employers';
+const password = '123456789';
 
 
 //OLD CONNECTION

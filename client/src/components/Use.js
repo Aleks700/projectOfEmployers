@@ -5,21 +5,24 @@ import UserContext from  '../userContext/UserContext';
 export default function Use(props) {
     const userContext = useContext(UserContext);
     const DeleteEmployers =   async (Id) =>{
-        
         let confirmDelete =  window.confirm(`Вы точно хотите удалить из базы сотрудника ${props.data.NAME}`);
         if(confirmDelete){
             console.log('Start deleting');
             const deleteBody = {
                 Id: Id
-            }
+            };
             const requestBody = {
                 method: "DELETE",
                 headers: {'Content-Type':'application/json'},
                 body: JSON.stringify(deleteBody)
-            }
-             await fetch('http://10.0.15.226:8000/api',requestBody);
+            };
+            console.log('щяс начнется');
+            await fetch('http://10.0.15.226:8000/api', requestBody);
+            console.log('щяс начнется снова');
+            userContext.ChangeToggler();
             console.log('Удалено и релоад');
-            userContext.Reloaded();
+            // userContext.ChangeToggler();
+            // userContext.Reloaded();
             console.log('Релоад');
         }
         else{
@@ -42,10 +45,8 @@ export default function Use(props) {
             <td>{props.data.DESCTOP}</td>
             <td>{props.data.MONITOR}</td>
             <td>{props.data.PRINTER}</td>
-            <td><div className="btn-box"><button className='btn btn-danger'  onClick={()=>{DeleteEmployers(props.data.Id)}}> Удалить</button>
+            <td><div className="btn-box"><button className='btn btn-danger'  onClick={()=>{DeleteEmployers(props.data.Id)}}>Удалить</button>
             <Link to={`/users/${props.data.Id}`}><button className='btn btn-primary' onClick={()=>{}}>Редактировать</button ></Link></div></td>
-            
-            
         </tr>
     )
 }

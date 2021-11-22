@@ -55,7 +55,7 @@ export default function Form() {
     const ChangeCABINET = (event) => {
         setCABINET(event.target.value);
     }
-    const [IP, setIP] = useState('');
+    const [IP, setIP] = useState('10.0.');
     const ChangeIP = (event) => {
         setIP(event.target.value);
     }
@@ -63,11 +63,11 @@ export default function Form() {
     const ChangeENTER_POINT = (event) => {
         setENTER_POINT(event.target.value);
     }
-    const [DESCTOP, setDESCTOP] = useState('');
+    const [DESCTOP, setDESCTOP] = useState('0100');
     const ChangeDESCTOP = (event) => {
         setDESCTOP(event.target.value);
     }
-    const [MONITOR, setMONITOR] = useState('');
+    const [MONITOR, setMONITOR] = useState('0100');
     const ChangeMONITOR = (event) => {
         setMONITOR(event.target.value);
     }

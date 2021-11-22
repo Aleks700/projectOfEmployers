@@ -1,14 +1,18 @@
 import { RELOAD, SEARCH_USER, SET_RENDER,CHANGESEARCH,GET_USER } from './types';
 import userReducer from './userReducer';
 import UserContext from './UserContext';
-import React, { useReducer } from 'react';
+import React, { useReducer,useState} from 'react';
 
 const UserState = (props) => {
     const initialState = {
         reload: false,
-        searchValue: 'Bitchis',
         userProfile:[]
     };
+
+    const [toggler,setToggler] = useState(true);
+    const ChangeToggler = () => {
+        setToggler(!toggler)
+    }
 
     const [state, dispatch] = useReducer(userReducer, initialState);
     const {searchValue,reload} = state;
@@ -26,10 +30,7 @@ const UserState = (props) => {
         GET_USER();
     }
 
-
-
-    
-    const ChangeSearchValue = (value)=>{
+    const ChangeSearchValue = (value) =>{
         // state.
 
         console.log("Изменилось значение");
@@ -46,11 +47,12 @@ const UserState = (props) => {
 
     return <UserContext.Provider value={{
         // reload: state.reload,
+        toggler:toggler,
         searchValue: searchValue,
         reload: reload,
         ChangeSearchValue,
-        Reloaded
-        
+        Reloaded,
+        ChangeToggler
     }}>
         {props.children}
     </UserContext.Provider>

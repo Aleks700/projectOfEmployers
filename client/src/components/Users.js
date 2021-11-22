@@ -7,7 +7,7 @@ import { text } from 'body-parser';
 export default function Users({toSearch,DZZ,SVSN,SBIK,SKTB,FirstFloor,SecondFloor,ThirdFloor,FourFloor,FiveFloor}) {
 
     const userContext = useContext(UserContext);
-    const {reload,searchValue} = userContext;
+    const {reload,searchValue,toggler} = userContext;
     const [DataList, setDataList] = useState();
     const [loading, setLoading] = useState(true);
     const [dbLoading, setdbLoading] = useState(true);
@@ -133,7 +133,7 @@ export default function Users({toSearch,DZZ,SVSN,SBIK,SKTB,FirstFloor,SecondFloo
 
        
         fetchData();
-    }, [dbLoading,reload,toSearch,DZZ,SVSN,SBIK,SKTB,FirstFloor,SecondFloor,ThirdFloor,FourFloor,FiveFloor]);
+    }, [dbLoading,reload,toSearch,DZZ,SVSN,SBIK,SKTB,FirstFloor,SecondFloor,ThirdFloor,FourFloor,FiveFloor,toggler]);
 
 
 
@@ -165,8 +165,8 @@ export default function Users({toSearch,DZZ,SVSN,SBIK,SKTB,FirstFloor,SecondFloo
                         </thead>
                         <tbody>
                             {
-                                DataList.map(index => {
-                                    return <Use
+                                DataList.map((index,keyCounter) => {
+                                    return <Use key = {keyCounter}
                                         data={index}
                                     ></Use>
                                 })
